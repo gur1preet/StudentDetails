@@ -50,7 +50,6 @@ function deleteDetails() {
     let count = 0;
 
     for (let x=0;x<ch.length; x++){
-        console.log("in loop");
         if(ch[x].checked){
             table_Body.deleteRow(x);
             nameN.splice(x,1);
@@ -60,7 +59,6 @@ function deleteDetails() {
             x=-1;
             count++;
         }
-        a++;
     }
     index -= count;
 }
