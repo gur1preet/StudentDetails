@@ -4,6 +4,22 @@ let passoutYear = [];
 let stream = [];
 let index=0;
 
+$(document).ready(function(){
+    $("#editButton").click(function(){
+        console.log("modal called");
+        $("#editDataModal").modal({backdrop: "static"});
+    });
+
+    $("#submit_button").click(function(){
+        console.log("submitDetails");
+        submitDetails();
+    });
+
+    $("#deleteButton").click(function() {
+        deleteDetails();
+    })
+});
+
 function submitDetails(){
     nameN.push(document.getElementById("formName").value);
     rollNo.push(document.getElementById("formRollNO").value);
@@ -40,13 +56,34 @@ function submitDetails(){
 }
 
 function editDetails(){
+    let table_Body = document.getElementById("tableBody");
+    let tr = document.getElementsByClassName("tr");
+    let ch = document.getElementsByName("box");
+    let count = 0;
+    let pos
 
+    for (let x=0; x<ch.length; x++){
+        if(ch[x].checked){
+            count++;
+            pos = x;
+        }
+    }
+
+    console.log(count);
+
+    if (count > 1){
+        alert("Only select single row to edit.");
+    } else if (count < 1) {
+        alert("Select a row to edit");
+    } else {
+
+    }
 }
 
 function deleteDetails() {
     let table_Body = document.getElementById("tableBody");
     let tr = document.getElementsByClassName("tr");
-    let ch = document.getElementsByName('box');
+    let ch = document.getElementsByName("box");
     let count = 0;
 
     for (let x=0;x<ch.length; x++){
@@ -64,5 +101,15 @@ function deleteDetails() {
 }
 
 function validate() {
+    let check = true;
+    let nameV = document.getElementById("formName");
+    let rollNoV = document.getElementById("formRollNO");
+    let streamV = document.getElementById("formStream");
+    let passoutYearV = document.getElementById("formPassoutYear");
 
+    if (!(nameV == "" ) && (typeof nameV === "string")){
+        alert("Enter a valid name")
+        isEmpty = false;
+    }
+    return check;
 }
