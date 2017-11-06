@@ -1,5 +1,5 @@
 .jumbotron{
-    background-color: #FB976B;
+    background: linear-gradient(to left, #929292, #e0e0e0)
 }
 
 .modal-body{
@@ -11,5 +11,5 @@
 }
 
 .modal-footer{
-    padding: 
+    padding:
 }

@@ -2,22 +2,25 @@ let nameN = [];
 let rollNo = [];
 let passoutYear = [];
 let stream = [];
-let index=0;
+let index=0,pos=0;
 
 $(document).ready(function(){
     $("#editButton").click(function(){
-        console.log("modal called");
-        $("#editDataModal").modal({backdrop: "static"});
+        editDetails();
     });
 
     $("#submit_button").click(function(){
-        console.log("submitDetails");
         submitDetails();
     });
 
     $("#deleteButton").click(function() {
         deleteDetails();
-    })
+    });
+
+    $("#submitModal").click(function(){
+        console.log("edit submit");
+        editSubmit();
+    });
 });
 
 function submitDetails(){
@@ -39,7 +42,7 @@ function submitDetails(){
     let tdPassoutYear = document.createElement("td");;
     let tdSelect = document.createElement("td");
     let tr = document.createElement("tr");
-    tr.ClassName = "tr";
+    tr.name = "rows";
 
     tdName.appendChild(document.createTextNode(nameN[index]));
     tr.appendChild(tdName);
@@ -56,11 +59,8 @@ function submitDetails(){
 }
 
 function editDetails(){
-    let table_Body = document.getElementById("tableBody");
-    let tr = document.getElementsByClassName("tr");
     let ch = document.getElementsByName("box");
     let count = 0;
-    let pos
 
     for (let x=0; x<ch.length; x++){
         if(ch[x].checked){
@@ -69,20 +69,36 @@ function editDetails(){
         }
     }
 
-    console.log(count);
-
     if (count > 1){
         alert("Only select single row to edit.");
     } else if (count < 1) {
         alert("Select a row to edit");
     } else {
-
+        $("#editDataModal").modal();
+        $("#nameDetails").val(nameN[pos]);
+        $("#rollNoDetails").val(rollNo[pos]);
+        $("#passoutYearDetails").val(passoutYear[pos]);
+        $("#streamDetails").val(stream[pos]);
     }
+}
+
+function editSubmit(){
+    let table_Body = $("#tableBody");
+    console.log(table_Body);
+    let tr = table_Body[pos].childNodes;
+    console.log(tr);
+    let data = tr[pos].childNodes;
+
+    data[0] = nameN[pos] = $("#nameDetails").val();
+    data[1] = rollNo[pos] = $("#rollNoDetails").val();
+    data[2] = passoutYear[pos] = $("#passoutYearDetails").val();
+    data[3] = stream[pos] = $("#streamDetails").val();
+    $("#editDataModal").modal("hide");
 }
 
 function deleteDetails() {
     let table_Body = document.getElementById("tableBody");
-    let tr = document.getElementsByClassName("tr");
+    let tr = document.getElementsByClassName("rows");
     let ch = document.getElementsByName("box");
     let count = 0;
 

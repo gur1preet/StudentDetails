@@ -16,7 +16,7 @@
             <h1 >Student Details<br /><small>This webpage displays data of students</small></h1>
         </div>
 
-        <div class="container" align="center" id="formA">
+        <div class="container" align="center">
             <form class="form-inline">
                 <div class="form-group">
                     <div class="col-sm-3">
@@ -64,12 +64,12 @@
             </div>
         </div>
 
-        <div class="modal fade" id="editDataModal" role="dialog">
+        <div class="modal" tabindex="-1" id="editDataModal" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
 
                 <div class="modal-content">
                     <div class="modal-header">
-                        <p>Edit details</p>
+                        <h3>Edit details</h3>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4><span class="glyphicon glyphicon-lock"></span></h4>
                     </div>
@@ -90,7 +90,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Submit</button>
+                        <button type="button" class="btn btn-success btn-block" id="submitModal"><span class="glyphicon glyphicon-off"></span>Submit</button>
                     </div>
                 </div>
 
