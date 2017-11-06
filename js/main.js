@@ -83,12 +83,11 @@ function editDetails(){
 }
 
 function editSubmit(){
-    let table_Body = $("#tableBody");
-    console.log(table_Body);
-    let tr = table_Body[pos].childNodes;
-    console.log(tr);
-    let data = tr[pos].childNodes;
+    let table = $("#tableBody > tr");
+    console.log(table);
+    let data = table[pos].childNodes;
 
+    console.log(data[0]);
     data[0] = nameN[pos] = $("#nameDetails").val();
     data[1] = rollNo[pos] = $("#rollNoDetails").val();
     data[2] = passoutYear[pos] = $("#passoutYearDetails").val();
