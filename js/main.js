@@ -18,7 +18,6 @@ $(document).ready(function(){
     });
 
     $("#submitModal").click(function(){
-        console.log("edit submit");
         editSubmit();
     });
 });
@@ -48,10 +47,10 @@ function submitDetails(){
     tr.appendChild(tdName);
     tdRollNO.appendChild(document.createTextNode(rollNo[index]));
     tr.appendChild(tdRollNO);
-    tdStream.appendChild(document.createTextNode(stream[index]));
-    tr.appendChild(tdStream);
     tdPassoutYear.appendChild(document.createTextNode(passoutYear[index]));
     tr.appendChild(tdPassoutYear);
+    tdStream.appendChild(document.createTextNode(stream[index]));
+    tr.appendChild(tdStream);
     tdSelect.appendChild(nodeCheck);
     tr.appendChild(tdSelect);
     tableBody.appendChild(tr);
@@ -96,7 +95,6 @@ function editSubmit(){
 
 function deleteDetails() {
     let table_Body = document.getElementById("tableBody");
-    let tr = document.getElementsByClassName("rows");
     let ch = document.getElementsByName("box");
     let count = 0;
 
