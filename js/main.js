@@ -87,11 +87,10 @@ function editSubmit(){
     console.log(table);
     let data = table[pos].childNodes;
 
-    console.log(data[0]);
-    data[0] = nameN[pos] = $("#nameDetails").val();
-    data[1] = rollNo[pos] = $("#rollNoDetails").val();
-    data[2] = passoutYear[pos] = $("#passoutYearDetails").val();
-    data[3] = stream[pos] = $("#streamDetails").val();
+    data[0].innerHTML = nameN[pos] = $("#nameDetails").val();
+    rollNo[pos].innerHTML = $("#rollNoDetails").val();
+    passoutYear[pos].innerHTML = $("#passoutYearDetails").val();
+    stream[pos].innerHTML = $("#streamDetails").val();
     $("#editDataModal").modal("hide");
 }
 
