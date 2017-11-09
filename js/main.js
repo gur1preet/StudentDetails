@@ -88,9 +88,9 @@ function editSubmit(){
     let data = table[pos].childNodes;
 
     data[0].innerHTML = nameN[pos] = $("#nameDetails").val();
-    rollNo[pos].innerHTML = $("#rollNoDetails").val();
-    passoutYear[pos].innerHTML = $("#passoutYearDetails").val();
-    stream[pos].innerHTML = $("#streamDetails").val();
+    data[1].innerHTML = rollNo[pos] = $("#rollNoDetails").val();
+    data[2].innerHTML = passoutYear[pos] = $("#passoutYearDetails").val();
+    data[3].innerHTML = stream[pos] = $("#streamDetails").val();
     $("#editDataModal").modal("hide");
 }
 
