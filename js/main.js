@@ -111,17 +111,3 @@ function deleteDetails() {
     }
     index -= count;
 }
-
-function validate() {
-    let check = true;
-    let nameV = document.getElementById("formName");
-    let rollNoV = document.getElementById("formRollNO");
-    let streamV = document.getElementById("formStream");
-    let passoutYearV = document.getElementById("formPassoutYear");
-
-    if (!(nameV == "" ) && (typeof nameV === "string")){
-        alert("Enter a valid name")
-        isEmpty = false;
-    }
-    return check;
-}
